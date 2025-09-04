@@ -51,14 +51,14 @@ public class WordFrequencyGame {
 
         //get the map for the next step of sizing the same word
         Map<String, List<String>> groups = new HashMap<>();
-        for (String input1 : inputList) {
+        for (String input : inputList) {
 //       map.computeIfAbsent(input.getValue(), k -> new ArrayList<>()).add(input);
-            if (!groups.containsKey(input1)) {
+            if (!groups.containsKey(input)) {
                 ArrayList arr = new ArrayList<>();
-                arr.add(input1);
-                groups.put(input1, arr);
+                arr.add(input);
+                groups.put(input, arr);
             } else {
-                groups.get(input1).add(input1);
+                groups.get(input).add(input);
             }
         }
         return groups;
