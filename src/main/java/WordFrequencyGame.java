@@ -32,24 +32,7 @@ public class WordFrequencyGame {
     }
 
     private List<Input> countFrequencies(String[] words) {
-        List<String> inputList = new ArrayList<>();
-        for (String s : words) {
-            inputList.add(s);
-        }
-
-        //get the map for the next step of sizing the same word
-        Map<String, List<String>> groups1 = new HashMap<>();
-        for (String input1 : inputList) {
-//       map.computeIfAbsent(input.getValue(), k -> new ArrayList<>()).add(input);
-            if (!groups1.containsKey(input1)) {
-                ArrayList arr = new ArrayList<>();
-                arr.add(input1);
-                groups1.put(input1, arr);
-            } else {
-                groups1.get(input1).add(input1);
-            }
-        }
-        Map<String, List<String>> groups = groups1;
+        Map<String, List<String>> groups = groupSameWords(words);
 
         List<Input> frequencies = new ArrayList<>();
         for (Map.Entry<String, List<String>> entry : groups.entrySet()) {
@@ -59,4 +42,22 @@ public class WordFrequencyGame {
         return frequencies;
     }
 
+    private static Map<String, List<String>> groupSameWords(String[] words) {
+        List<String> inputList = new ArrayList<>();
+        for (String s : words) {
+            inputList.add(s);
+        }
+
+        Map<String, List<String>> groups = new HashMap<>();
+        for (String input : inputList) {
+            if (!groups.containsKey(input)) {
+                ArrayList arr = new ArrayList<>();
+                arr.add(input);
+                groups.put(input, arr);
+            } else {
+                groups.get(input).add(input);
+            }
+        }
+        return groups;
+    }
 }
