@@ -14,9 +14,9 @@ public class WordFrequencyGame {
         String[] words = inputStr.split(ANY_SPACE_SEPARATOR);
         try {
             List<WordCount> frequencies = countFrequencies(words);
-            frequencies.sort((w1, w2) -> w2.count - w1.count);
+            frequencies.sort((word1, word2) -> word2.count - word1.count);
             return composeOutput(frequencies);
-        } catch (Exception e) {
+        } catch (Exception calculateError) {
             return "Calculate Error";
         }
     }
