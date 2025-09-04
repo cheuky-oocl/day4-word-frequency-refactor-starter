@@ -17,7 +17,7 @@ public class WordFrequencyGame {
         }
     }
 
-    private static String composeOutput(List<WordCount> frequencies) {
+    private String composeOutput(List<WordCount> frequencies) {
         StringJoiner outputResult = new StringJoiner("\n");
         frequencies.forEach(wordCount -> outputResult.add(wordCount.word + " " + wordCount.count));
         return outputResult.toString();
@@ -30,7 +30,7 @@ public class WordFrequencyGame {
         return frequencies;
     }
 
-    private static Map<String, Integer> groupSameWords(String[] words) {
+    private Map<String, Integer> groupSameWords(String[] words) {
         Map<String, Integer> groups = new HashMap<>();
         Arrays.stream(words).forEach(word -> groups.merge(word, 1, Integer::sum));
         return groups;
