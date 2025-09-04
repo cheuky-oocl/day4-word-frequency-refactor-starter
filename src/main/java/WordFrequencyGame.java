@@ -45,13 +45,7 @@ public class WordFrequencyGame {
     private static Map<String, Integer> groupSameWords(String[] words) {
         Map<String, Integer> groups = new HashMap<>();
         for (String word: words) {
-            if (!groups.containsKey(word)) {
-                ArrayList arr = new ArrayList<>();
-                arr.add(word);
-                groups.put(word, 1);
-            } else {
-                groups.put(word, groups.get(word) + 1);
-            }
+            groups.put(word, groups.getOrDefault(word, 0) + 1);
         }
         return groups;
     }
