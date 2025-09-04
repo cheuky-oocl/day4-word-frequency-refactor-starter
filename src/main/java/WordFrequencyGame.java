@@ -40,7 +40,7 @@ public class WordFrequencyGame {
     private static Map<String, Integer> groupSameWords(String[] words) {
         Map<String, Integer> groups = new HashMap<>();
         for (String word: words) {
-            groups.put(word, groups.getOrDefault(word, 0) + 1);
+            groups.merge(word, 1, Integer::sum);
         }
         return groups;
     }
