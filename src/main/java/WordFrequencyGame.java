@@ -1,8 +1,4 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.StringJoiner;
+import java.util.*;
 
 public class WordFrequencyGame {
 
@@ -41,9 +37,7 @@ public class WordFrequencyGame {
 
     private static Map<String, Integer> groupSameWords(String[] words) {
         Map<String, Integer> groups = new HashMap<>();
-        for (String word: words) {
-            groups.merge(word, 1, Integer::sum);
-        }
+        Arrays.stream(words).forEach(word -> groups.merge(word, 1, Integer::sum));
         return groups;
     }
 }
