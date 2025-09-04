@@ -10,7 +10,7 @@ public class WordFrequencyGame {
         String[] words = inputStr.split(ANY_SPACE_SEPARATOR);
         try {
             List<WordCount> frequencies = countFrequencies(words);
-            frequencies.sort((word1, word2) -> word2.count - word1.count);
+            frequencies.sort((wordCount1, wordCount2) -> wordCount2.count - wordCount1.count);
             return composeOutput(frequencies);
         } catch (Exception calculateError) {
             return "Calculate Error";
@@ -19,7 +19,7 @@ public class WordFrequencyGame {
 
     private static String composeOutput(List<WordCount> frequencies) {
         StringJoiner joiner = new StringJoiner("\n");
-        frequencies.forEach(w -> joiner.add(w.word + " " + w.count));
+        frequencies.forEach(wordCount -> joiner.add(wordCount.word + " " + wordCount.count));
         return joiner.toString();
     }
 
