@@ -10,9 +10,6 @@ public class WordFrequencyGame {
 
     public String getResult(String inputStr) {
         String[] words = inputStr.split(ANY_SPACE_SEPARATOR);
-        if (words.length == 1) {
-            return inputStr + " 1";
-        }
         try {
             List<Input> frequencies = countFrequencies(words);
             frequencies.sort((w1, w2) -> w2.getWordCount() - w1.getWordCount());
