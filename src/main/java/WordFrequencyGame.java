@@ -2,9 +2,9 @@ import java.util.*;
 
 public class WordFrequencyGame {
 
-    public static final String ANY_SPACE_SEPARATOR = "\\s+";
+    private static final String ANY_SPACE_SEPARATOR = "\\s+";
 
-    public record WordCount(String word, int count) {}
+    private record WordCount(String word, int count) {}
 
     public String getResult(String inputStr) {
         String[] words = inputStr.split(ANY_SPACE_SEPARATOR);
